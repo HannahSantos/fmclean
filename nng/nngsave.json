@@ -167,39 +167,48 @@
     },
     {
       "lean": "example (P Q : Prop) (p : P) (h : P → Q) : Q :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "exact h(p)"
     },
     {
       "lean": "lemma imp_self (P : Prop) : P → P :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hp,\nexact hp"
     },
     {
       "lean": "lemma maze (P Q R S T U: Prop)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "have q := h(p),\nhave t := j(q),\nhave u := l(t),\nexact u"
     },
     {
       "lean": "lemma maze (P Q R S T U: Prop)\n(p : P)\n(h : P → Q)\n(i : Q → R)\n(j : Q → T)\n(k : S → T)\n(l : T → U)\n: U :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "apply l,\napply j,\napply h,\nexact p"
     },
     {
       "lean": "example (P Q : Prop) : P → (Q → P) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hp,\nintro hq,\nexact hp"
     },
     {
       "lean": "example (P Q R : Prop) : (P → (Q → R)) → ((P → Q) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hpqr,\nintro hpq,\nintro hp,\nhave hqr := hpqr(hp),\napply hqr,\napply hpq,\nexact hp"
     },
     {
       "lean": "lemma imp_trans (P Q R : Prop) : (P → Q) → ((Q → R) → (P → R)) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hpq,\nintro hqr,\nintro hp,\nexact hqr(hpq(hp))"
     },
     {
       "lean": "lemma contrapositive (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro hpq,\nintro notq,\nintro hp,\nhave q := hpq(hp),\ncontradiction"
     },
     {
       "lean": "example (A B C D E F G H I J K L : Prop)\n(f1 : A → B) (f2 : B → E) (f3 : E → D) (f4 : D → A) (f5 : E → F)\n(f6 : F → C) (f7 : B → C) (f8 : F → G) (f9 : G → J) (f10 : I → J)\n(f11 : J → I) (f12 : I → H) (f13 : E → H) (f14 : H → K) (f15 : I → L)\n : A → L :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "intro a,\nexact f15(f11(f9(f8(f5(f2(f1(a)))))))"
     },
     {
       "lean": "example (P Q : Prop) (p : P) (q : Q) : P ∧ Q :=\n",
