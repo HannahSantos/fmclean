@@ -99,35 +99,43 @@
     },
     {
       "lean": "lemma zero_pow_zero : (0 : mynat) ^ (0 : mynat) = 1 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw pow_zero,\nrefl"
     },
     {
       "lean": "lemma zero_pow_succ (m : mynat) : (0 : mynat) ^ (succ m) = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw pow_succ,\nrw mul_zero,\nrefl"
     },
     {
       "lean": "lemma pow_one (a : mynat) : a ^ (1 : mynat) = a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw one_eq_succ_zero,\nrw pow_succ,\nrw pow_zero,\nrw one_mul,\nrefl"
     },
     {
       "lean": "lemma one_pow (m : mynat) : (1 : mynat) ^ m = 1 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction m with o hm,\nrw pow_zero,\nrefl,\nrw pow_succ,\nrw hm,\nrw one_mul,\nrefl"
     },
     {
       "lean": "lemma pow_add (a m n : mynat) : a ^ (m + n) = a ^ m * a ^ n :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction n with o hn,\nrw add_zero,\nrw pow_zero,\nrw mul_one,\nrefl,\nrw add_succ,\nrw pow_succ,\nrw hn,\nrw mul_assoc,\nsymmetry,\nrw pow_succ,\nrefl"
     },
     {
       "lean": "lemma mul_pow (a b n : mynat) : (a * b) ^ n = a ^ n * b ^ n :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction n with m hn,\nrepeat {rw pow_zero},\nrw mul_one,\nrefl,\nrw pow_succ,\nrw hn,\nrw mul_assoc,\nsymmetry,\nrepeat {rw pow_succ},\nrw mul_left_comm,\nrw mul_assoc,\nrw mul_left_comm,\nrefl"
     },
     {
       "lean": "lemma pow_pow (a m n : mynat) : (a ^ m) ^ n = a ^ (m * n) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction n with o hn,\nrw mul_zero,\nrepeat {rw pow_zero},\nrw pow_succ,\nrw hn,\nsymmetry,\nrw mul_succ,\nrw pow_add,\nrefl"
     },
     {
       "lean": "lemma add_squared (a b : mynat) :\n  (a + b) ^ (2 : mynat) = a ^ (2 : mynat) + b ^ (2 : mynat) + 2 * a * b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw two_eq_succ_one,\nrw one_eq_succ_zero,\nrepeat {rw pow_succ},\nrepeat {rw pow_zero},\nrw one_mul,\nrw mul_add,\nrw add_mul,\nrw add_mul,\nrw mul_comm,\nrw mul_comm,\nrw add_assoc,\nrw add_comm,\nrw mul_comm,\nrw add_comm,\nsymmetry,\nrw one_mul,\nrw one_mul,\nrw succ_mul,\nrw succ_mul,\nrw zero_mul,\nrw zero_add,\nrw add_mul,\nrw add_right_comm,\nsymmetry,\nrw add_assoc,\nrw add_assoc,\nrefl"
     },
     {
       "lean": "example (P Q : Type) (p : P) (h : P → Q) : Q :=\n",
