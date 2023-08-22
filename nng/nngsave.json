@@ -54,7 +54,8 @@
     },
     {
       "lean": "lemma zero_mul (m : mynat) : 0 * m = 0 :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction m with n hn,\r\nrw mul_zero 0,\r\nrefl,\r\nrw [\r\n  mul_succ 0 n,\r\n  add_zero (0 * n),\r\n  hn\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma mul_one (m : mynat) : m * 1 = m :=\n",
