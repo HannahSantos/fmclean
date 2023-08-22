@@ -20,7 +20,7 @@
     {
       "lean": "lemma add_succ_zero (a : mynat) : a + succ(0) = succ(a) :=\n",
       "isSolved": true,
-      "editorText": "rw [\r\n add_succ a,\r\n add_zero a\r\n],\r\nrefl,"
+      "editorText": "rw [\r\n add_succ a 0,\r\n add_zero a\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma zero_add (n : mynat) : 0 + n = n :=\n",
