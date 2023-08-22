@@ -25,7 +25,7 @@
     {
       "lean": "lemma zero_add (n : mynat) : 0 + n = n :=\n",
       "isSolved": true,
-      "editorText": "induction n with d hd,\r\nrw add_zero,\r\nrefl,\r\nrw add_succ,\r\nrw hd,\r\nrefl,"
+      "editorText": "induction n with d hd,\r\nrw add_zero 0,\r\nrefl,\r\nrw [\r\n  add_succ 0,\r\n  hd\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma add_assoc (a b c : mynat) : (a + b) + c = a + (b + c) :=\n",
