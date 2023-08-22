@@ -64,7 +64,8 @@
     },
     {
       "lean": "lemma one_mul (m : mynat) : 1 * m = m :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "rw one_eq_succ_zero,\r\ninduction m with n hn,\r\nrw mul_zero (succ 0),\r\nrefl,\r\nrw [\r\n  mul_succ (succ 0) n,\r\n  hn,\r\n  add_succ n 0,\r\n  add_zero n\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma mul_add (t a b : mynat) : t * (a + b) = t * a + t * b :=\n",
