@@ -4,7 +4,8 @@
   "data": [
     {
       "lean": "lemma example1 (x y z : mynat) : x * y + z = x * y + z :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "refl,"
     },
     {
       "lean": "lemma example2 (x y : mynat) (h : y = x + 7) : 2 * y = 2 * (x + 7) :=\n",
