@@ -79,7 +79,8 @@
     },
     {
       "lean": "lemma succ_mul (a b : mynat) : succ a * b = a * b + b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with c hc,\r\nrw [\r\n  mul_zero (succ a),\r\n  mul_zero a,\r\n  add_zero 0\r\n],\r\nrefl,\r\nrw [\r\n  mul_succ (succ a) c,\r\n  add_succ (a * succ c) c,\r\n  mul_succ a c,\r\n  hc,\r\n  add_succ (a * c + c) a,\r\n  add_assoc (a * c) c a,\r\n  add_comm c a,\r\n  ← add_assoc (a * c) a c\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma add_mul (a b t : mynat) : (a + b) * t = a * t + b * t :=\n",
