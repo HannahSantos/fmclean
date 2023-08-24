@@ -129,7 +129,8 @@
     },
     {
       "lean": "lemma pow_pow (a m n : mynat) : (a ^ m) ^ n = a ^ (m * n) :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction n with o ho,\r\nrw [\r\n  pow_zero (a ^ m),\r\n  mul_zero m,\r\n  pow_zero a\r\n],\r\nrefl,\r\nrw [\r\n  pow_succ (a ^ m) o,\r\n  ho,\r\n  mul_succ m o,\r\n  pow_add a (m * o) m\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma add_squared (a b : mynat) :\n  (a + b) ^ (2 : mynat) = a ^ (2 : mynat) + b ^ (2 : mynat) + 2 * a * b :=\n",
