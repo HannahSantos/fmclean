@@ -404,7 +404,8 @@
     },
     {
       "lean": "theorem le_total (a b : mynat) : a ≤ b ∨ b ≤ a :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "induction b with d hd generalizing a,\r\nright,\r\nexact zero_le a,\r\ncases a,\r\nleft,\r\nuse (succ d),\r\nrw zero_add (succ d),\r\nrefl,\r\nhave h: (a ≤ d ∨ d ≤ a) := hd a,\r\ncases h with had hda,\r\nleft,\r\nexact succ_le_succ a d had,\r\nright,\r\nexact succ_le_succ d a hda,"
     },
     {
       "lean": "lemma le_succ_self (a : mynat) : a ≤ succ a :=\n",
