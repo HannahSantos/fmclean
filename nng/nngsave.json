@@ -429,7 +429,8 @@
     },
     {
       "lean": "theorem add_le_add_left {a b : mynat} (h : a ≤ b) (t : mynat) :\n  t + a ≤ t + b :=\n",
-      "editorText": "sorry"
+      "isSolved": true,
+      "editorText": "have ht: ((a + t) ≤ (b + t)) := add_le_add_right h t,\r\ncases ht with c hc,\r\nuse c,\r\nrw [\r\n  add_comm t b,\r\n  add_comm t a\r\n],\r\nexact hc,"
     },
     {
       "lean": "lemma lt_aux_one (a b : mynat) : a ≤ b ∧ ¬ (b ≤ a) → succ a ≤ b :=\n",
