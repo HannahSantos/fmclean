@@ -270,7 +270,7 @@
     {
       "lean": "lemma contra (P Q : Prop) : (P ∧ ¬ P) → Q :=\n",
       "isSolved": true,
-      "editorText": "intro hp_p,\r\ncases hp_p with p _p,\r\nexfalso,\r\napply _p,\r\nexact p,"
+      "editorText": "intro hpnotp,\r\ncases hpnotp with p notp,\r\nexfalso,\r\napply notp,\r\nexact p,"
     },
     {
       "lean": "lemma contrapositive2 (P Q : Prop) : (¬ Q → ¬ P) → (P → Q) :=\n",
