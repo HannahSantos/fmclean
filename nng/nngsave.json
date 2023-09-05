@@ -360,7 +360,7 @@
     {
       "lean": "theorem mul_left_cancel (a b c : mynat) (ha : a ≠ 0) : a * b = a * c → b = c :=\n",
       "isSolved": true,
-      "editorText": "induction c with d hd generalizing b,\r\nintro h,\r\nrw mul_zero a at h,\r\nhave hab: (a = 0 ∨ b = 0) := eq_zero_or_eq_zero_of_mul_eq_zero a b h,\r\ncases hab with ha' hb',\r\nexfalso,\r\nexact ha ha',\r\nexact hb',\r\nintro h',\r\ncases b,\r\nrw mul_zero a at h',\r\nsymmetry at h',\r\nhave h'a: (a = 0) := add_left_eq_zero h',\r\nexfalso,\r\nexact ha h'a,\r\nrw [\r\n  mul_succ a b,\r\n  mul_succ a d\r\n] at h',\r\nhave habad: (a * b = a * d) := add_right_cancel (a * b) a (a * d) h',\r\nhave hbd: (b = d) := hd b habad,\r\nexact succ_eq_succ_of_eq hbd,"
+      "editorText": "induction c with k hk generalizing b,\r\nintro h,\r\nrw mul_zero a at h,\r\nhave hab: (a = 0 ∨ b = 0) := eq_zero_or_eq_zero_of_mul_eq_zero a b h,\r\ncases hab with haz hbz,\r\nexfalso,\r\nexact ha haz,\r\nexact hbz,\r\nintro h',\r\ncases b,\r\nrw mul_zero a at h',\r\nsymmetry at h',\r\nhave haz': (a = 0) := add_left_eq_zero h',\r\nexfalso,\r\nexact ha haz',\r\nrw [\r\n  mul_succ a b,\r\n  mul_succ a k\r\n] at h',\r\nhave habak: (a * b = a * k) := add_right_cancel (a * b) a (a * k) h',\r\nhave hbk: (b = k) := hk b habak,\r\nexact succ_eq_succ_of_eq hbk,"
     },
     {
       "lean": "lemma one_add_le_self (x : mynat) : x ≤ 1 + x :=\n",
