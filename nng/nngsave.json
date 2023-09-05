@@ -435,7 +435,7 @@
     {
       "lean": "lemma lt_aux_one (a b : mynat) : a ≤ b ∧ ¬ (b ≤ a) → succ a ≤ b :=\n",
       "isSolved": true,
-      "editorText": "intro h,\r\ncases h with hab hnba,\r\ncases hab with c hc,\r\ncases c with d,\r\nrw add_zero a at hc,\r\nrw hc at hnba,\r\nhave ha: (a ≤ a) := le_refl a,\r\nexfalso,\r\nexact hnba ha,\r\nuse d,\r\nrw add_succ a d at hc,\r\nrw succ_add a d,\r\nexact hc,"
+      "editorText": "intro habnba,\r\ncases habnba with hab hnba,\r\ncases hab with c hbac,\r\ncases c with d,\r\nrw add_zero a at hbac,\r\nrw hbac at hnba,\r\nhave ha: (a ≤ a) := le_refl a,\r\nexfalso,\r\nexact hnba ha,\r\nuse d,\r\nrw add_succ a d at hbac,\r\nrw succ_add a d,\r\nexact hbac,"
     },
     {
       "lean": "lemma lt_aux_two (a b : mynat) : succ a ≤ b → a ≤ b ∧ ¬ (b ≤ a) :=\n",
