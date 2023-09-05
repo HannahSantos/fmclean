@@ -85,7 +85,7 @@
     {
       "lean": "lemma add_mul (a b t : mynat) : (a + b) * t = a * t + b * t :=\n",
       "isSolved": true,
-      "editorText": "induction t with u hu,\r\nrw [\r\n  mul_zero (a + b),\r\n  mul_zero a,\r\n  mul_zero b,\r\n  add_zero 0\r\n],\r\nrefl,\r\nrw [\r\n  mul_succ (a + b) u,\r\n  mul_succ a u,\r\n  mul_succ b u,\r\n  hu,\r\n  add_assoc (a * u) a (b * u + b),\r\n  add_comm a (b * u + b),\r\n  add_assoc (b * u) b a,\r\n  add_comm b a,\r\n  ← add_assoc (a * u) (b * u) (a + b)\r\n],\r\nrefl,"
+      "editorText": "induction t with k hk,\r\nrw [\r\n  mul_zero (a + b),\r\n  mul_zero a,\r\n  mul_zero b,\r\n  add_zero 0\r\n],\r\nrefl,\r\nrw [\r\n  mul_succ (a + b) k,\r\n  mul_succ a k,\r\n  mul_succ b k,\r\n  hk,\r\n  add_assoc (a * k) a (b * k + b),\r\n  add_comm a (b * k + b),\r\n  add_assoc (b * k) b a,\r\n  add_comm b a,\r\n  ← add_assoc (a * k) (b * k) (a + b)\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma mul_comm (a b : mynat) : a * b = b * a :=\n",
