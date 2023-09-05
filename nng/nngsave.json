@@ -35,7 +35,7 @@
     {
       "lean": "lemma succ_add (a b : mynat) : succ a + b = succ (a + b) :=\n",
       "isSolved": true,
-      "editorText": "induction b with c hc,\r\nrw [\r\n  add_zero (succ(a)),\r\n  add_zero a\r\n],\r\nrefl,\r\nrw [\r\n  add_succ (succ (a)) c,\r\n  add_succ a c,\r\n  hc\r\n],\r\nrefl,"
+      "editorText": "induction b with k hk,\r\nrw [\r\n  add_zero (succ a),\r\n  add_zero a\r\n],\r\nrefl,\r\nrw [\r\n  add_succ (succ a) k,\r\n  add_succ a k,\r\n  hk\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma add_comm (a b : mynat) : a + b = b + a :=\n",
