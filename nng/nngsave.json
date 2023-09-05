@@ -40,7 +40,7 @@
     {
       "lean": "lemma add_comm (a b : mynat) : a + b = b + a :=\n",
       "isSolved": true,
-      "editorText": "induction b with c hc,\r\nrw [\r\n  add_zero a,\r\n  zero_add a\r\n],\r\nrefl,\r\nrw [\r\n  add_succ a c,\r\n  succ_add c a,\r\n  hc\r\n],\r\nrefl,"
+      "editorText": "induction b with k hk,\r\nrw [\r\n  add_zero a,\r\n  zero_add a\r\n],\r\nrefl,\r\nrw [\r\n  add_succ a k,\r\n  succ_add k a,\r\n  hk\r\n],\r\nrefl,"
     },
     {
       "lean": "theorem succ_eq_add_one (n : mynat) : succ n = n + 1 :=\n",
