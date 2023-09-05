@@ -30,7 +30,7 @@
     {
       "lean": "lemma add_assoc (a b c : mynat) : (a + b) + c = a + (b + c) :=\n",
       "isSolved": true,
-      "editorText": "induction c with d hd,\r\nrw [\r\n  add_zero b,\r\n  add_zero (a + b)\r\n],\r\nrefl,\r\nrw [\r\n  add_succ (a + b) d,\r\n  add_succ b d,\r\n  add_succ a (b + d),\r\n  hd\r\n],\r\nrefl,"
+      "editorText": "induction c with k hk,\r\nrw [\r\n  add_zero b,\r\n  add_zero (a + b)\r\n],\r\nrefl,\r\nrw [\r\n  add_succ (a + b) k,\r\n  add_succ b k,\r\n  add_succ a (b + k),\r\n  hk\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma succ_add (a b : mynat) : succ a + b = succ (a + b) :=\n",
