@@ -90,7 +90,7 @@
     {
       "lean": "lemma mul_comm (a b : mynat) : a * b = b * a :=\n",
       "isSolved": true,
-      "editorText": "induction b with c hc,\r\nrw [\r\n  mul_zero a,\r\n  zero_mul a\r\n],\r\nrefl,\r\nrw [\r\n  mul_succ a c,\r\n  succ_mul c a,\r\n  hc\r\n],\r\nrefl,"
+      "editorText": "induction b with k hk,\r\nrw [\r\n  mul_zero a,\r\n  zero_mul a\r\n],\r\nrefl,\r\nrw [\r\n  mul_succ a k,\r\n  succ_mul k a,\r\n  hk\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma mul_left_comm (a b c : mynat) : a * (b * c) = b * (a * c) :=\n",
