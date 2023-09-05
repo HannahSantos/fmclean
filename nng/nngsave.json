@@ -120,7 +120,7 @@
     {
       "lean": "lemma pow_add (a m n : mynat) : a ^ (m + n) = a ^ m * a ^ n :=\n",
       "isSolved": true,
-      "editorText": "induction n with o ho,\r\nrw [\r\n  add_zero m,\r\n  pow_zero a,\r\n  mul_one (a ^ m)\r\n],\r\nrefl,\r\nrw [\r\n  add_succ m o,\r\n  pow_succ a (m + o),\r\n  ho,\r\n  pow_succ a o,\r\n  mul_assoc (a ^ m) (a ^ o) a\r\n],\r\nrefl,"
+      "editorText": "induction n with k hk,\r\nrw [\r\n  add_zero m,\r\n  pow_zero a,\r\n  mul_one (a ^ m)\r\n],\r\nrefl,\r\nrw [\r\n  add_succ m k,\r\n  pow_succ a (m + k),\r\n  hk,\r\n  pow_succ a k,\r\n  mul_assoc (a ^ m) (a ^ k) a\r\n],\r\nrefl,"
     },
     {
       "lean": "lemma mul_pow (a b n : mynat) : (a * b) ^ n = a ^ n * b ^ n :=\n",
