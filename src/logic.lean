@@ -1,7 +1,7 @@
 
 section propositional
 
-variables P Q R : Prop
+variable (P Q R : Prop)
 
 
 ------------------------------------------------
@@ -9,10 +9,10 @@ variables P Q R : Prop
 ------------------------------------------------
 
 theorem doubleneg_intro :
-  P → ¬¬P  :=
-begin
-  intro p,
-end
+  P → ¬¬P  := by
+  intros p notp
+  have hboom: False := notp p
+  exact hboom
 
 theorem doubleneg_elim :
   ¬¬P → P  :=
