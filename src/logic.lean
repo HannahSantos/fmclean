@@ -15,10 +15,11 @@ theorem doubleneg_intro :
   exact hboom
 
 theorem doubleneg_elim :
-  ¬¬P → P  :=
-begin
-  sorry,
-end
+  ¬¬P → P  := by 
+  intro notnotp
+  by_cases p: P
+  exact p
+  contradiction
 
 theorem doubleneg_law :
   ¬¬P ↔ P  :=
