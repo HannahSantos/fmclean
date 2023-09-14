@@ -22,10 +22,10 @@ theorem doubleneg_elim :
   contradiction
 
 theorem doubleneg_law :
-  ¬¬P ↔ P  :=
-begin
-  sorry,
-end
+  ¬¬P ↔ P  := by
+  apply Iff.intro
+  exact doubleneg_elim P
+  exact doubleneg_intro P
 
 ------------------------------------------------
 -- Comutatividade dos ∨,∧:
