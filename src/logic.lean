@@ -54,10 +54,14 @@ theorem conj_comm :
 ------------------------------------------------
 
 theorem impl_as_disj_converse :
-  (¬P ∨ Q) → (P → Q)  :=
-begin
-  sorry,
-end
+  (¬P ∨ Q) → (P → Q)  := by
+  intro hnpq
+  intro p
+  apply Or.elim hnpq
+  intro notp
+  contradiction
+  intro q
+  exact q
 
 theorem disj_as_impl :
   (P ∨ Q) → (¬P → Q)  :=
