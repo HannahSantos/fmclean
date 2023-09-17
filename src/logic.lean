@@ -64,11 +64,14 @@ theorem impl_as_disj_converse :
   exact q
 
 theorem disj_as_impl :
-  (P ∨ Q) → (¬P → Q)  :=
-begin
-  sorry,
-end
-
+  (P ∨ Q) → (¬P → Q)  := by
+  intro hpq
+  intro notp
+  apply Or.elim hpq
+  intro p
+  contradiction
+  intro q
+  exact q
 
 ------------------------------------------------
 -- Proposições de contraposição:
