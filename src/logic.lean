@@ -32,10 +32,15 @@ theorem doubleneg_law :
 ------------------------------------------------
 
 theorem disj_comm :
-  (P ∨ Q) → (Q ∨ P)  :=
-begin
-  sorry,
-end
+  (P ∨ Q) → (Q ∨ P)  := by
+  intro hpq
+  apply Or.elim hpq
+  intro p
+  apply Or.inr
+  exact p
+  intro q
+  apply Or.inl
+  exact q
 
 theorem conj_comm :
   (P ∧ Q) → (Q ∧ P)  :=
