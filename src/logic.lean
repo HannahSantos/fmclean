@@ -95,11 +95,10 @@ theorem impl_as_contrapositive_converse :
   contradiction
 
 theorem contrapositive_law :
-  (P → Q) ↔ (¬Q → ¬P)  :=
-begin
-  sorry,
-end
-
+  (P → Q) ↔ (¬Q → ¬P)  := by
+  apply Iff.intro
+  exact impl_as_contrapositive P Q
+  exact impl_as_contrapositive_converse P Q
 
 ------------------------------------------------
 -- A irrefutabilidade do LEM:
