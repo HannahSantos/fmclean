@@ -105,11 +105,14 @@ theorem contrapositive_law :
 ------------------------------------------------
 
 theorem lem_irrefutable :
-  ¬¬(P∨¬P)  :=
-begin
-  sorry,
-end
-
+  ¬¬(P∨¬P)  := by
+  intro nhpnp
+  suffices hpnp: (P∨¬P) from nhpnp hpnp
+  apply Or.inr
+  intro p
+  suffices hpnp: (P∨¬P) from nhpnp hpnp
+  apply Or.inl
+  exact p
 
 ------------------------------------------------
 -- A lei de Peirce
