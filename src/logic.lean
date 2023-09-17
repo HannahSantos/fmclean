@@ -43,11 +43,11 @@ theorem disj_comm :
   exact q
 
 theorem conj_comm :
-  (P ∧ Q) → (Q ∧ P)  :=
-begin
-  sorry,
-end
-
+  (P ∧ Q) → (Q ∧ P)  := by
+  intro hpq
+  apply And.intro
+  exact And.right hpq
+  exact And.left hpq
 
 ------------------------------------------------
 -- Proposições de interdefinabilidade dos →,∨:
