@@ -78,10 +78,12 @@ theorem disj_as_impl :
 ------------------------------------------------
 
 theorem impl_as_contrapositive :
-  (P → Q) → (¬Q → ¬P)  :=
-begin
-  sorry,
-end
+  (P → Q) → (¬Q → ¬P)  := by
+  intro hpq
+  intro notq
+  intro p
+  have q: Q := hpq p
+  contradiction
 
 theorem impl_as_contrapositive_converse :
   (¬Q → ¬P) → (P → Q)  :=
