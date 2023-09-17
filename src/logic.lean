@@ -19,7 +19,7 @@ theorem doubleneg_elim :
   intro notnotp
   by_cases p: P
   exact p
-  contradiction
+  apply False.elim (notnotp p)
 
 theorem doubleneg_law :
   ¬¬P ↔ P  := by
