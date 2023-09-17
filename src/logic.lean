@@ -86,10 +86,13 @@ theorem impl_as_contrapositive :
   contradiction
 
 theorem impl_as_contrapositive_converse :
-  (¬Q → ¬P) → (P → Q)  :=
-begin
-  sorry,
-end
+  (¬Q → ¬P) → (P → Q)  := by
+  intro hnqnp
+  intro p
+  by_cases q: Q
+  exact q
+  have notp: ¬P := hnqnp q
+  contradiction
 
 theorem contrapositive_law :
   (P → Q) ↔ (¬Q → ¬P)  :=
