@@ -59,7 +59,7 @@ theorem impl_as_disj_converse :
   intro p
   apply Or.elim hnpq
   intro notp
-  contradiction
+  apply False.elim (notp p)
   intro q
   exact q
 
@@ -69,7 +69,7 @@ theorem disj_as_impl :
   intro notp
   apply Or.elim hpq
   intro p
-  contradiction
+  apply False.elim (notp p)
   intro q
   exact q
 
@@ -83,7 +83,7 @@ theorem impl_as_contrapositive :
   intro notq
   intro p
   have q: Q := hpq p
-  contradiction
+  apply False.elim (notq q)
 
 theorem impl_as_contrapositive_converse :
   (¬Q → ¬P) → (P → Q)  := by
@@ -92,7 +92,7 @@ theorem impl_as_contrapositive_converse :
   by_cases q: Q
   exact q
   have notp: ¬P := hnqnp q
-  contradiction
+  apply False.elim (notp p)
 
 theorem contrapositive_law :
   (P → Q) ↔ (¬Q → ¬P)  := by
