@@ -287,10 +287,14 @@ theorem distr_disj_conj_converse :
 ------------------------------------------------
 
 theorem curry_prop :
-  ((P∧Q)→R) → (P→(Q→R))  :=
-begin
-  sorry,
-end
+  ((P∧Q)→R) → (P→(Q→R))  := by
+  intro hpqr
+  intro p
+  intro q
+  suffices hpq: (P∧Q) from hpqr hpq
+  apply And.intro
+  exact p
+  exact q
 
 theorem uncurry_prop :
   (P→(Q→R)) → ((P∧Q)→R)  :=
