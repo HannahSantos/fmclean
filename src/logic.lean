@@ -297,11 +297,11 @@ theorem curry_prop :
   exact q
 
 theorem uncurry_prop :
-  (P→(Q→R)) → ((P∧Q)→R)  :=
-begin
-  sorry,
-end
-
+  (P→(Q→R)) → ((P∧Q)→R)  := by
+  intro hpqr
+  intro hpq
+  have hqr: (Q→R) := hpqr (And.left hpq)
+  exact hqr (And.right hpq)
 
 ------------------------------------------------
 -- Reflexividade da →:
