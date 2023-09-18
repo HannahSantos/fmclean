@@ -308,10 +308,9 @@ theorem uncurry_prop :
 ------------------------------------------------
 
 theorem impl_refl :
-  P → P  :=
-begin
-  sorry,
-end
+  P → P  := by
+  intro p
+  exact p
 
 ------------------------------------------------
 -- Weakening and contraction:
