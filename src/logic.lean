@@ -186,10 +186,7 @@ theorem demorgan_disj_converse :
   apply And.right hnpnq q
 
 theorem demorgan_conj :
-  ¬(P∧Q) → (¬Q ∨ ¬P)  :=
-begin
-  sorry,
-end
+  ¬(P∧Q) → (¬Q ∨ ¬P)  := by sorry
 
 theorem demorgan_conj_converse :
   (¬Q ∨ ¬P) → ¬(P∧Q)  := by
@@ -202,10 +199,7 @@ theorem demorgan_conj_converse :
   exact notp (And.left hpq)
 
 theorem demorgan_conj_law :
-  ¬(P∧Q) ↔ (¬Q ∨ ¬P)  :=
-begin
-  sorry,
-end
+  ¬(P∧Q) ↔ (¬Q ∨ ¬P)  := by sorry
 
 theorem demorgan_disj_law :
   ¬(P∨Q) ↔ (¬P ∧ ¬Q)  := by
@@ -341,8 +335,7 @@ theorem weaken_conj_left :
 theorem conj_idempot :
   (P∧P) ↔ P := by
   apply Iff.intro
-  intro hpp
-  exact weaken_conj_right hpp
+  exact weaken_conj_right P P
   intro p
   apply And.intro
   exact p
@@ -353,9 +346,9 @@ theorem disj_idempot :
   apply Iff.intro
   intro hpp
   apply Or.elim hpp
-  exact impl_refl
-  exact impl_refl
-  exact weaken_disj_left
+  exact impl_refl P
+  exact impl_refl P
+  exact weaken_disj_left P P
 
 end propositional
 
