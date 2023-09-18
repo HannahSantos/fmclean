@@ -126,6 +126,14 @@ theorem peirce_law_weak :
   intro p
   apply False.elim (notp p)
 
+theorem peirce_law :
+  ((P → Q) → P) → P  := by
+  intro hpqp
+  have hpqpnnp: (((P → Q) → P) → ¬¬P) := peirce_law_weak P Q
+  have notnotp: ¬¬P := hpqpnnp hpqp
+  have hnnpp: (¬¬P → P) := doubleneg_elim P
+  exact hnnpp notnotp
+
 ------------------------------------------------
 -- Proposições de interdefinabilidade dos ∨,∧:
 ------------------------------------------------
