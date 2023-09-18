@@ -208,10 +208,10 @@ begin
 end
 
 theorem demorgan_disj_law :
-  ¬(P∨Q) ↔ (¬P ∧ ¬Q)  :=
-begin
-  sorry,
-end
+  ¬(P∨Q) ↔ (¬P ∧ ¬Q)  := by
+  apply Iff.intro
+  exact demorgan_disj P Q
+  exact demorgan_disj_converse P Q
 
 ------------------------------------------------
 -- Proposições de distributividade dos ∨,∧:
