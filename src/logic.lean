@@ -149,11 +149,14 @@ theorem disj_as_negconj :
   exact And.right hnpnq q
 
 theorem conj_as_negdisj :
-  P∧Q → ¬(¬P∨¬Q)  :=
-begin
-  sorry,
-end
-
+  P∧Q → ¬(¬P∨¬Q)  := by
+  intro hpq
+  intro hnpnq
+  apply Or.elim hnpnq
+  intro notp
+  exact notp (And.left hpq)
+  intro notq
+  exact notq (And.right hpq)
 
 ------------------------------------------------
 -- As leis de De Morgan para ∨,∧:
