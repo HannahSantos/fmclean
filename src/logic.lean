@@ -349,10 +349,13 @@ theorem conj_idempot :
   exact p
 
 theorem disj_idempot :
-  (P∨P) ↔ P  :=
-begin
-  sorry,
-end
+  (P∨P) ↔ P  := by
+  apply Iff.intro
+  intro hpp
+  apply Or.elim hpp
+  exact impl_refl
+  exact impl_refl
+  exact weaken_disj_left
 
 end propositional
 
