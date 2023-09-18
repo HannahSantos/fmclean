@@ -358,8 +358,8 @@ end propositional
 
 section predicate
 
-variable U : Type
-variables P Q : U -> Prop
+variable (U : Type)
+variable (P Q : U -> Prop)
 
 
 ------------------------------------------------
