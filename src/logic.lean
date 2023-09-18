@@ -186,7 +186,17 @@ theorem demorgan_disj_converse :
   apply And.right hnpnq q
 
 theorem demorgan_conj :
-  ¬(P∧Q) → (¬Q ∨ ¬P)  := by sorry
+  ¬(P∧Q) → (¬Q ∨ ¬P)  := by 
+  intro nhpq
+  by_cases p: P
+  apply Or.inl
+  intro q
+  suffices hpq: (P∧Q) from nhpq hpq
+  apply And.intro
+  exact p
+  exact q
+  apply Or.inr
+  exact p
 
 theorem demorgan_conj_converse :
   (¬Q ∨ ¬P) → ¬(P∧Q)  := by
