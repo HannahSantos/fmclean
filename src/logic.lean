@@ -176,10 +176,14 @@ theorem demorgan_disj :
   exact q
 
 theorem demorgan_disj_converse :
-  (¬P ∧ ¬Q) → ¬(P∨Q)  :=
-begin
-  sorry,
-end
+  (¬P ∧ ¬Q) → ¬(P∨Q)  := by
+  intro hnpnq
+  intro hpq
+  apply Or.elim hpq
+  intro p
+  exact And.left hnpnq p
+  intro q
+  apply And.right hnpnq q
 
 theorem demorgan_conj :
   ¬(P∧Q) → (¬Q ∨ ¬P)  :=
