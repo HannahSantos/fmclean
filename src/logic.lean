@@ -163,10 +163,17 @@ theorem conj_as_negdisj :
 ------------------------------------------------
 
 theorem demorgan_disj :
-  ¬(P∨Q) → (¬P ∧ ¬Q)  :=
-begin
-  sorry,
-end
+  ¬(P∨Q) → (¬P ∧ ¬Q)  := by
+  intro nhpq
+  apply And.intro
+  intro p
+  suffices hpq: (P∨Q) from nhpq hpq
+  apply Or.inl
+  exact p
+  intro q
+  suffices hpq': (P∨Q) from nhpq hpq'
+  apply Or.inr
+  exact q
 
 theorem demorgan_disj_converse :
   (¬P ∧ ¬Q) → ¬(P∨Q)  :=
