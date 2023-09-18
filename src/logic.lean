@@ -323,10 +323,10 @@ theorem weaken_disj_right :
   exact p
 
 theorem weaken_disj_left :
-  Q → (P∨Q)  :=
-begin
-  sorry,
-end
+  Q → (P∨Q)  := by
+  intro q
+  apply Or.inr
+  exact q
 
 theorem weaken_conj_right :
   (P∧Q) → P  :=
