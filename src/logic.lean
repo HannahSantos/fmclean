@@ -192,10 +192,14 @@ begin
 end
 
 theorem demorgan_conj_converse :
-  (¬Q ∨ ¬P) → ¬(P∧Q)  :=
-begin
-  sorry,
-end
+  (¬Q ∨ ¬P) → ¬(P∧Q)  := by
+  intro hnqnp
+  intro hpq
+  apply Or.elim hnqnp
+  intro notq
+  exact notq (And.right hpq)
+  intro notp
+  exact notp (And.left hpq)
 
 theorem demorgan_conj_law :
   ¬(P∧Q) ↔ (¬Q ∨ ¬P)  :=
