@@ -139,10 +139,14 @@ theorem peirce_law :
 ------------------------------------------------
 
 theorem disj_as_negconj :
-  P∨Q → ¬(¬P∧¬Q)  :=
-begin
-  sorry,
-end
+  P∨Q → ¬(¬P∧¬Q)  := by
+  intro hpq
+  intro hnpnq
+  apply Or.elim hpq
+  intro p
+  exact And.left hnpnq p
+  intro q
+  exact And.right hnpnq q
 
 theorem conj_as_negdisj :
   P∧Q → ¬(¬P∨¬Q)  :=
