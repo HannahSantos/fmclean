@@ -334,10 +334,9 @@ theorem weaken_conj_right :
   exact And.left hpq
 
 theorem weaken_conj_left :
-  (P∧Q) → Q  :=
-begin
-  sorry,
-end
+  (P∧Q) → Q  := by
+  intro hpq
+  exact And.right hpq
 
 theorem conj_idempot :
   (P∧P) ↔ P :=
