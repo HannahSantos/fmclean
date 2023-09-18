@@ -233,10 +233,19 @@ theorem distr_conj_disj :
   exact r
 
 theorem distr_conj_disj_converse :
-  (P∧Q)∨(P∧R) → P∧(Q∨R)  :=
-begin
-  sorry,
-end
+  (P∧Q)∨(P∧R) → P∧(Q∨R)  := by
+  intro hpqpr
+  apply Or.elim hpqpr
+  intro hpq
+  apply And.intro
+  exact And.left hpq
+  apply Or.inl
+  exact And.right hpq
+  intro hpr
+  apply And.intro
+  exact And.left hpr
+  apply Or.inr
+  exact And.right hpr
 
 theorem distr_disj_conj :
   P∨(Q∧R) → (P∨Q)∧(P∨R)  :=
