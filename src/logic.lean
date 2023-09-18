@@ -119,11 +119,12 @@ theorem lem_irrefutable :
 ------------------------------------------------
 
 theorem peirce_law_weak :
-  ((P → Q) → P) → ¬¬P  :=
-begin
-  sorry,
-end
-
+  ((P → Q) → P) → ¬¬P  := by
+  intro hpqp
+  intro notp
+  suffices hpq: (P → Q) from False.elim (notp (hpqp hpq))
+  intro p
+  apply False.elim (notp p)
 
 ------------------------------------------------
 -- Proposições de interdefinabilidade dos ∨,∧:
