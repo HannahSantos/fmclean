@@ -392,10 +392,10 @@ theorem demorgan_exists_converse :
   intro han
   intro he
   apply Exists.elim he
-  intro a
-  intro pa
-  have npa: ¬P a := han a
-  exact npa pa
+  intro x
+  intro px
+  have npx: ¬P x := han x
+  exact npx px
 
 theorem demorgan_forall :
   ¬(∀x, P x) → (∃x, ¬P x)  :=
