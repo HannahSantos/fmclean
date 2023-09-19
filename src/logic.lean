@@ -453,10 +453,10 @@ theorem exists_as_neg_forall_converse :
   ¬(∀x, ¬P x) → (∃x, P x)  := by sorry
 
 theorem forall_as_neg_exists_law :
-  (∀x, P x) ↔ ¬(∃x, ¬P x)  :=
-begin
-  sorry,
-end
+  (∀x, P x) ↔ ¬(∃x, ¬P x)  := by
+  apply Iff.intro
+  exact forall_as_neg_exists U P
+  exact forall_as_neg_exists_converse U P
 
 theorem exists_as_neg_forall_law :
   (∃x, P x) ↔ ¬(∀x, ¬P x)  :=
