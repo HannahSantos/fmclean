@@ -516,11 +516,12 @@ theorem forall_conj_as_conj_forall :
   exact And.right hpqx'
 
 theorem forall_conj_as_conj_forall_converse :
-  (∀x, P x) ∧ (∀x, Q x) → (∀x, P x ∧ Q x)  :=
-begin
-  sorry,
-end
-
+  (∀x, P x) ∧ (∀x, Q x) → (∀x, P x ∧ Q x)  := by
+  intro hapaq
+  intro x
+  apply And.intro
+  apply And.left hapaq
+  apply And.right hapaq
 
 theorem forall_disj_as_disj_forall_converse :
   (∀x, P x) ∨ (∀x, Q x) → (∀x, P x ∨ Q x)  :=
