@@ -505,10 +505,15 @@ theorem exists_disj_as_disj_exists_converse :
   exact qx
 
 theorem forall_conj_as_conj_forall :
-  (∀x, P x ∧ Q x) → (∀x, P x) ∧ (∀x, Q x)  :=
-begin
-  sorry,
-end
+  (∀x, P x ∧ Q x) → (∀x, P x) ∧ (∀x, Q x)  := by
+  intro hapq
+  apply And.intro
+  intro x
+  have hpqx: (P x ∧ Q x) := hapq x
+  exact And.left hpqx
+  intro x'
+  have hpqx': (P x' ∧ Q x') := hapq x'
+  exact And.right hpqx'
 
 theorem forall_conj_as_conj_forall_converse :
   (∀x, P x) ∧ (∀x, Q x) → (∀x, P x ∧ Q x)  :=
