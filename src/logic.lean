@@ -488,10 +488,21 @@ theorem exists_disj_as_disj_exists :
   apply Exists.intro x qx
 
 theorem exists_disj_as_disj_exists_converse :
-  (∃x, P x) ∨ (∃x, Q x) → (∃x, P x ∨ Q x)  :=
-begin
-  sorry,
-end
+  (∃x, P x) ∨ (∃x, Q x) → (∃x, P x ∨ Q x)  := by
+  intro hepeq
+  apply Or.elim hepeq
+  intro hepx
+  apply Exists.elim hepx
+  intro x px
+  apply Exists.intro x
+  apply Or.inl
+  exact px
+  intro heqx
+  apply Exists.elim heqx
+  intro x qx
+  apply Exists.intro x
+  apply Or.inr
+  exact qx
 
 theorem forall_conj_as_conj_forall :
   (∀x, P x ∧ Q x) → (∀x, P x) ∧ (∀x, Q x)  :=
