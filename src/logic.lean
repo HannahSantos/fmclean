@@ -413,11 +413,10 @@ theorem demorgan_forall_law :
   ¬(∀x, P x) ↔ (∃x, ¬P x)  := by sorry
 
 theorem demorgan_exists_law :
-  ¬(∃x, P x) ↔ (∀x, ¬P x)  :=
-begin
-  sorry,
-end
-
+  ¬(∃x, P x) ↔ (∀x, ¬P x)  := by
+  apply Iff.intro
+  exact demorgan_exists U P
+  exact demorgan_exists_converse U P
 
 ------------------------------------------------
 -- Proposições de interdefinabilidade dos ∃,∀:
