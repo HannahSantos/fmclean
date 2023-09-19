@@ -441,10 +441,13 @@ theorem forall_as_neg_exists :
   exact npx px
 
 theorem forall_as_neg_exists_converse :
-  ¬(∃x, ¬P x) → (∀x, P x)  :=
-begin
-  sorry,
-end
+  ¬(∃x, ¬P x) → (∀x, P x)  := by
+  intro hnen
+  intro x
+  by_cases px: P x
+  exact px
+  suffices hen: (∃x, ¬P x) from False.elim (hnen hen)
+  apply Exists.intro x px
 
 theorem exists_as_neg_forall_converse :
   ¬(∀x, ¬P x) → (∃x, P x)  :=
