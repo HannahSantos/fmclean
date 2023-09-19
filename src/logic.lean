@@ -388,10 +388,14 @@ theorem demorgan_exists :
   apply Exists.intro x p
 
 theorem demorgan_exists_converse :
-  (∀x, ¬P x) → ¬(∃x, P x)  :=
-begin
-  sorry,
-end
+  (∀x, ¬P x) → ¬(∃x, P x)  := by
+  intro han
+  intro he
+  apply Exists.elim he
+  intro a
+  intro pa
+  have npa: ¬P a := han a
+  exact npa pa
 
 theorem demorgan_forall :
   ¬(∀x, P x) → (∃x, ¬P x)  :=
