@@ -380,10 +380,12 @@ variable (P Q : U -> Prop)
 ------------------------------------------------
 
 theorem demorgan_exists :
-  ¬(∃x, P x) → (∀x, ¬P x)  :=
-begin
-  sorry,
-end
+  ¬(∃x, P x) → (∀x, ¬P x)  := by
+  intro hne
+  intro x
+  intro p
+  suffices he: (∃x, P x) from hne he
+  apply Exists.intro x p
 
 theorem demorgan_exists_converse :
   (∀x, ¬P x) → ¬(∃x, P x)  :=
