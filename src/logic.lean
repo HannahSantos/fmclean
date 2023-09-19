@@ -466,10 +466,13 @@ theorem exists_as_neg_forall_law :
 ------------------------------------------------
 
 theorem exists_conj_as_conj_exists :
-  (∃x, P x ∧ Q x) → (∃x, P x) ∧ (∃x, Q x)  :=
-begin
-  sorry,
-end
+  (∃x, P x ∧ Q x) → (∃x, P x) ∧ (∃x, Q x)  := by
+  intro hepq
+  apply Exists.elim hepq
+  intro x hpqx
+  apply And.intro
+  apply Exists.intro x (And.left hpqx)
+  apply Exists.intro x (And.right hpqx)
 
 theorem exists_disj_as_disj_exists :
   (∃x, P x ∨ Q x) → (∃x, P x) ∨ (∃x, Q x)  :=
