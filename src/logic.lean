@@ -423,10 +423,13 @@ theorem demorgan_exists_law :
 ------------------------------------------------
 
 theorem exists_as_neg_forall :
-  (∃x, P x) → ¬(∀x, ¬P x)  :=
-begin
-  sorry,
-end
+  (∃x, P x) → ¬(∀x, ¬P x)  := by
+  intro he
+  intro han
+  apply Exists.elim he
+  intro x px
+  have npx: ¬P x := han x
+  exact npx px
 
 theorem forall_as_neg_exists :
   (∀x, P x) → ¬(∃x, ¬P x)  :=
