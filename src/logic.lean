@@ -209,7 +209,10 @@ theorem demorgan_conj_converse :
   exact notp (And.left hpq)
 
 theorem demorgan_conj_law :
-  ¬(P∧Q) ↔ (¬Q ∨ ¬P)  := by sorry
+  ¬(P∧Q) ↔ (¬Q ∨ ¬P)  := by
+  apply Iff.intro
+  exact demorgan_conj P Q
+  exact demorgan_conj_converse P Q
 
 theorem demorgan_disj_law :
   ¬(P∨Q) ↔ (¬P ∧ ¬Q)  := by
