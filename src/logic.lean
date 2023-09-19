@@ -401,10 +401,13 @@ theorem demorgan_forall :
   ¬(∀x, P x) → (∃x, ¬P x)  := by sorry
 
 theorem demorgan_forall_converse :
-  (∃x, ¬P x) → ¬(∀x, P x)  :=
-begin
-  sorry,
-end
+  (∃x, ¬P x) → ¬(∀x, P x)  := by
+  intro hen
+  intro ha
+  apply Exists.elim hen
+  intro x npx
+  have px: P x := ha x
+  exact npx px
 
 theorem demorgan_forall_law :
   ¬(∀x, P x) ↔ (∃x, ¬P x)  :=
