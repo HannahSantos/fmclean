@@ -419,7 +419,10 @@ theorem demorgan_forall_converse :
   exact npx px
 
 theorem demorgan_forall_law :
-  ¬(∀x, P x) ↔ (∃x, ¬P x)  := by sorry
+  ¬(∀x, P x) ↔ (∃x, ¬P x)  := by
+  apply Iff.intro
+  exact demorgan_forall U P
+  exact demorgan_forall_converse U P
 
 theorem demorgan_exists_law :
   ¬(∃x, P x) ↔ (∀x, ¬P x)  := by
