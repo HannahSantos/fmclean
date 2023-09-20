@@ -467,7 +467,10 @@ theorem forall_as_neg_exists_law :
   exact forall_as_neg_exists_converse U P
 
 theorem exists_as_neg_forall_law :
-  (∃x, P x) ↔ ¬(∀x, ¬P x)  := by sorry
+  (∃x, P x) ↔ ¬(∀x, ¬P x)  := by
+  apply Iff.intro
+  exact exists_as_neg_forall U P
+  exact exists_as_neg_forall_converse U P
 
 ------------------------------------------------
 --  Proposições de distributividade de quantificadores:
