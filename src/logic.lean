@@ -398,7 +398,16 @@ theorem demorgan_exists_converse :
   exact npx px
 
 theorem demorgan_forall :
-  ¬(∀x, P x) → (∃x, ¬P x)  := by sorry
+  ¬(∀x, P x) → (∃x, ¬P x)  := by
+  intro hna
+  apply Classical.byContradiction
+  intro hnen
+  suffices ha: (∀x, P x) from hna ha
+  intro x
+  by_cases px: P x
+  exact px
+  suffices hen: (∃x, ¬P x) from False.elim (hnen hen)
+  apply Exists.intro x px
 
 theorem demorgan_forall_converse :
   (∃x, ¬P x) → ¬(∀x, P x)  := by
