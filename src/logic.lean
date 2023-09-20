@@ -450,7 +450,15 @@ theorem forall_as_neg_exists_converse :
   apply Exists.intro x px
 
 theorem exists_as_neg_forall_converse :
-  ¬(∀x, ¬P x) → (∃x, P x)  := by sorry
+  ¬(∀x, ¬P x) → (∃x, P x)  := by
+  intro hnan
+  apply Classical.byContradiction
+  intro hne
+  suffices han: (∀x, ¬P x) from hnan han
+  intro x
+  intro px
+  suffices he: (∃x, P x) from hne he
+  apply Exists.intro x px
 
 theorem forall_as_neg_exists_law :
   (∀x, P x) ↔ ¬(∃x, ¬P x)  := by
